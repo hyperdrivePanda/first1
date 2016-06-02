@@ -27,9 +27,15 @@
             <kind>1</kind>
             <string>horiz = 2;
 myTile = 0;
+leftRight = false;
+upDown = false;
+
+col[0] = path0;
+col[1] = path1;
+col[2] = path2;
 
 //number represents movement orientation
-//12 = fwd, 6 = back, 3 = right, 0 = motionless
+//12 = fwd, 6 = back, 3 = right, 0 = inactive
 stopping = 0; //slowing down
 moving = 0; //speeding up or moving steadily
 
@@ -59,59 +65,148 @@ y = path_get_point_y(path2, 0);
           <argument>
             <kind>1</kind>
             <string>fwdMax = 3;
-horizMax = 3;
+horizMax = 2;
 tileFwd = myTile+1;
 tileBack = myTile-1;
+tileLeft = horiz-1;
+tileRight = horiz+1;
 
-if (keyboard_check(ord('W')) == true and tileFwd &lt;= fwdMax and stopping = 0)
+
+if (keyboard_check(ord('W')) == true and tileFwd &lt;= fwdMax and leftRight == false)
 {
- idle = false;
- moving = 12;
- if (mp_linear_step(path_get_point_x(path2, tileFwd), path_get_point_y(path2, tileFwd), 3, 0))
+ if (stopping == 0)
  {
-  myTile++;
- }
+  idle = false;
+  moving = 12;
+  upDown = true;
+  if (mp_linear_step(path_get_point_x(col[horiz], tileFwd), path_get_point_y(col[horiz], tileFwd), 3, 0))
+  {
+   myTile++;
+  }
+ }  
 }
+if (keyboard_check(ord('W'))== true and tileFwd &gt; fwdMax)
+ {upDown = false; moving = 0; idle = true;}
 
 if (keyboard_check_released(ord('W')) == true and tileFwd &lt;= fwdMax and moving != 0)
 {
  stopping = 12;
+ moving = 0;
 }
 
 if (stopping == 12)
 {
- if (mp_linear_step(path_get_point_x(path2, tileFwd), path_get_point_y(path2, tileFwd), 3, 0))
+ if (mp_linear_step(path_get_point_x(col[horiz], tileFwd), path_get_point_y(col[horiz], tileFwd), 3, 0))
  {
   idle = true;
   moving = 0;
+  upDown = false;
   stopping = 0;
   myTile++;
  }
 }
 /********************************************************************************************************/
-if (keyboard_check(ord('S')) == true and tileBack &gt;= 0 and stopping = 0)
+if (keyboard_check(ord('S')) == true and tileBack &gt;= 0 and leftRight == false)
 {
- idle = false;
- moving = 6;
- if (mp_linear_step(path_get_point_x(path2, tileBack), path_get_point_y(path2, tileBack), 3, 0))
+ if (stopping == 0)
  {
-  myTile--;
+  idle = false;
+  moving = 6;
+  upDown = true;
+  if (mp_linear_step(path_get_point_x(col[horiz], tileBack), path_get_point_y(col[horiz], tileBack), 3, 0))
+   {
+    myTile--;
+   }
  }
 }
+if (keyboard_check(ord('S')) == true and tileBack &lt; 0)
+ {upDown = false; moving = 0; idle = true;}
 
 if (keyboard_check_released(ord('S')) == true and tileBack &gt;= 0 and moving != 0)
 {
  stopping = 6;
+ moving = 0;
 }
 
 if (stopping == 6)
 {
- if (mp_linear_step(path_get_point_x(path2, tileBack), path_get_point_y(path2, tileBack), 3, 0))
+ if (mp_linear_step(path_get_point_x(col[horiz], tileBack), path_get_point_y(col[horiz], tileBack), 3, 0))
  {
   idle = true;
   moving = 0;
   stopping = 0;
+  upDown = false;
   myTile--;
+  
+ }
+}
+/********************************************************************************************************/
+if (keyboard_check(ord('A')) == true and tileLeft &gt;= 0 and upDown == false)
+{
+ if (stopping == 0)
+  {
+  idle = false;
+  moving = 9;
+  leftRight = true;
+  if (mp_linear_step(path_get_point_x(col[tileLeft], myTile), path_get_point_y(col[tileLeft], myTile), 3, 0))
+   {
+    horiz--;
+   }
+  } 
+}
+
+if (keyboard_check(ord('A'))== true and tileLeft &lt; 0)
+ {leftRight = false; moving = 0; idle = true;}
+
+if (keyboard_check_released(ord('A')) == true and tileLeft &gt;= 0 and moving != 0)
+{
+ stopping = 9;
+ moving = 0;
+}
+
+if (stopping == 9)
+{
+ if (mp_linear_step(path_get_point_x(col[tileLeft], myTile), path_get_point_y(col[tileLeft], myTile), 3, 0))
+ {
+  idle = true;
+  moving = 0;
+  stopping = 0;
+  leftRight = false;
+  horiz--;
+ }
+}
+/********************************************************************************************************/
+if (keyboard_check(ord('D')) == true and tileRight &lt;= horizMax and upDown == false)
+{
+ if (stopping == 0)
+ {
+  idle = false;
+  moving = 3;
+  leftRight = true;
+  if (mp_linear_step(path_get_point_x(col[tileRight], myTile), path_get_point_y(col[tileRight], myTile), 3, 0))
+   {
+    horiz++;
+   }
+ }
+}
+if (keyboard_check(ord('D'))== true and tileRight &gt; horizMax)
+ {leftRight = false; moving = 0; idle = true;}
+
+if (keyboard_check_released(ord('D')) == true and tileRight &lt;= horizMax and moving != 0)
+{
+ stopping = 3;
+ moving = 0;
+}
+
+if (stopping == 3)
+{
+ if (mp_linear_step(path_get_point_x(col[tileRight], myTile), path_get_point_y(col[tileRight], myTile), 3, 0))
+ {
+  idle = true;
+  moving = 0;
+  stopping = 0;
+  leftRight = false;
+  horiz++;
  }
 }
 </string>

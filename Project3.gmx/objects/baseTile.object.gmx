@@ -27,25 +27,13 @@
             <kind>1</kind>
             <string>draw_self();
 draw_text(x, y+100, objDrone.myTile);
-draw_text(x, y+150, objDrone.tileFwd);
-draw_text(x, y+200, "fwdmax: " + string(objDrone.fwdMax));
+draw_text(x, y+120, objDrone.tileFwd);
+draw_text(x, y+140, "fwdmax: " + string(objDrone.fwdMax));
 
-
-if keyboard_check(ord("U")) != true
-{
- draw_set_colour(c_red);
- draw_text(x, y+250, "U not pressed");
- draw_set_colour(c_black);
-}
-
-else 
-{
- draw_set_colour(c_green);
- draw_text(x, y+250, "pressed");
- draw_set_colour(c_black);
-}
-
-//draw_text(x, y+300, "stopping: " + string(objDrone.stopping));
+draw_text(x, y+160, "accelerating: " + string(objDrone.moving));
+draw_text(x, y+180, "stopping: " + string(objDrone.stopping));
+draw_text(x, y+200, "vertical: " + string(objDrone.upDown));
+draw_text(x, y+220, "horizontal: " + string(objDrone.leftRight));
 </string>
           </argument>
         </arguments>
