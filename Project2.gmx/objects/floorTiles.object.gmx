@@ -60,7 +60,7 @@ fwdMax = 2;
     x = path_get_point_x(floorTiles.row[fwd], horiz);
     y = path_get_point_y(floorTiles.row[fwd], horiz);
 //'horiz' determines the column starting from 0
- scrMvRow(floorTiles);
+ //scrMvRow(floorTiles);
      x = path_get_point_x(stage.col[horiz], fwd);
     y = path_get_point_y(stage.col[horiz], fwd);
  fwdDiff = fwd - target.fwd;

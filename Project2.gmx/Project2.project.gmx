@@ -30,23 +30,62 @@
     <sprite>sprites\spr_charge</sprite>
     <sprite>sprites\antiDisplay</sprite>
     <sprite>sprites\sprFrame</sprite>
-    <sprite>sprites\ground4_2</sprite>
     <sprite>sprites\sprObstruct</sprite>
+    <sprites name="ground">
+      <sprite>sprites\ground3_2</sprite>
+      <sprite>sprites\ground2_2</sprite>
+      <sprite>sprites\ground3_1</sprite>
+      <sprite>sprites\ground1_1</sprite>
+      <sprite>sprites\ground4_2</sprite>
+    </sprites>
+    <sprite>sprites\sprStar</sprite>
+    <sprite>sprites\sprSpot</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
+    <paths name="3-2">
+      <path>paths\L3S2P0</path>
+      <path>paths\L3S2P1</path>
+      <path>paths\L3S2P2</path>
+      <path>paths\L3S2P3</path>
+      <path>paths\L3S2P4</path>
+      <path>paths\L3S2P5</path>
+    </paths>
+    <paths name="3-1">
+      <path>paths\L3S1P0</path>
+      <path>paths\L3S1P1</path>
+      <path>paths\L3S1P2</path>
+      <path>paths\L3S1P3</path>
+      <path>paths\L3S1P4</path>
+    </paths>
+    <paths name="2-2">
+      <path>paths\L2S2P0</path>
+      <path>paths\L2S2P1</path>
+      <path>paths\L2S2P2</path>
+      <path>paths\L2S2P3</path>
+      <path>paths\L2S2P4</path>
+      <path>paths\L2S2P5</path>
+    </paths>
+    <paths name="2-1">
+      <path>paths\L2S1P0</path>
+      <path>paths\L2S1P1</path>
+      <path>paths\L2S1P2</path>
+      <path>paths\L2S1P3</path>
+      <path>paths\L2S1P4</path>
+      <path>paths\L2S1P5</path>
+      <path>paths\L2S1P6</path>
+    </paths>
+    <paths name="1-1">
+      <path>paths\L1S1P2</path>
+      <path>paths\L1S1P1</path>
+      <path>paths\L1S1P0</path>
+      <path>paths\L1S1P3</path>
+      <path>paths\L1S1P4</path>
+    </paths>
     <paths name="rm0">
       <path>paths\path0</path>
       <path>paths\path1</path>
       <path>paths\path2</path>
-    </paths>
-    <paths name="4-2">
-      <path>paths\L4S2P1</path>
-      <path>paths\L4S2P2</path>
-      <path>paths\L4S2P3</path>
-      <path>paths\L4S2P4</path>
-      <path>paths\L4S2P5</path>
-      <path>paths\L4S2P6</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -54,6 +93,8 @@
     <script>scripts\scrMvCol.gml</script>
     <script>scripts\scrMvRow.gml</script>
     <script>scripts\scrObstruct.gml</script>
+    <script>scripts\selectStage.gml</script>
+    <script>scripts\scrObstructR.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -75,12 +116,23 @@
     <object>objects\objAnti</object>
     <object>objects\strawDisplay</object>
     <object>objects\objFrame</object>
-    <object>objects\g4_2</object>
     <object>objects\obstruct</object>
+    <objects name="ground">
+      <object>objects\g3_2</object>
+      <object>objects\g3_1</object>
+      <object>objects\g2_1</object>
+      <object>objects\g1_1</object>
+      <object>objects\g2_2</object>
+    </objects>
+    <object>objects\objStar</object>
+    <object>objects\objSpot</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
-    <room>rooms\room0</room>
+    <room>rooms\rm3_2</room>
+    <room>rooms\rm1_1</room>
+    <room>rooms\rm2_1</room>
+    <room>rooms\rm3_1</room>
+    <room>rooms\rm2_2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
