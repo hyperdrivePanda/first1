@@ -40,6 +40,15 @@
     </sprites>
     <sprite>sprites\sprStar</sprite>
     <sprite>sprites\sprSpot</sprite>
+    <sprite>sprites\sprTarget</sprite>
+    <sprite>sprites\sprite31</sprite>
+    <sprite>sprites\sprLeft</sprite>
+    <sprite>sprites\sprBox</sprite>
+    <sprite>sprites\sprR</sprite>
+    <sprite>sprites\sprG</sprite>
+    <sprite>sprites\sprB</sprite>
+    <sprite>sprites\sprY</sprite>
+    <sprite>sprites\sprDong</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
@@ -95,27 +104,30 @@
     <script>scripts\scrObstruct.gml</script>
     <script>scripts\selectStage.gml</script>
     <script>scripts\scrObstructR.gml</script>
+    <script>scripts\addTarget.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
   </fonts>
   <objects name="objects">
-    <object>objects\object0</object>
+    <objects name="ScrappedOldProject">
+      <object>objects\lowerText</object>
+      <object>objects\objTile2</object>
+      <object>objects\strawDisplay</object>
+      <object>objects\objFrame</object>
+      <object>objects\objAnti</object>
+      <object>objects\objCharger</object>
+      <object>objects\floorTiles</object>
+      <object>objects\obj_strawPiece</object>
+      <object>objects\room0_shift</object>
+      <object>objects\fury2</object>
+      <object>objects\txtObj_FuryStatus</object>
+      <object>objects\fury1</object>
+      <object>objects\obj_Fury</object>
+      <object>objects\object0</object>
+      <object>objects\wheelAnti</object>
+    </objects>
     <object>objects\obj_tester</object>
-    <object>objects\wheelAnti</object>
-    <object>objects\obj_Fury</object>
-    <object>objects\fury1</object>
-    <object>objects\fury2</object>
-    <object>objects\txtObj_FuryStatus</object>
-    <object>objects\room0_shift</object>
-    <object>objects\obj_strawPiece</object>
-    <object>objects\lowerText</object>
-    <object>objects\floorTiles</object>
-    <object>objects\objTile2</object>
-    <object>objects\objCharger</object>
-    <object>objects\objAnti</object>
-    <object>objects\strawDisplay</object>
-    <object>objects\objFrame</object>
     <object>objects\obstruct</object>
     <objects name="ground">
       <object>objects\g3_2</object>
@@ -126,6 +138,13 @@
     </objects>
     <object>objects\objStar</object>
     <object>objects\objSpot</object>
+    <object>objects\objTarget</object>
+    <object>objects\targetBox</object>
+    <object>objects\dong</object>
+    <object>objects\objY</object>
+    <object>objects\objB</object>
+    <object>objects\objG</object>
+    <object>objects\objR</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm3_2</room>

@@ -31,8 +31,9 @@ column[4] = L3S2P4; column[5] = L3S2P5;
 
 stage = g3_2;
 
-scrObstruct(3, 8); 
-scrObstruct(1, 7);
+
+scrObstruct(3, 8); addTarget(8, 3);
+scrObstruct(1, 7); addTarget(7, 1);
 scrObstruct(5, 7);
 scrObstruct(2, 6);
 scrObstruct(4, 6);
@@ -41,6 +42,9 @@ scrObstruct(1, 4);
 scrObstruct(5, 4);
 scrObstruct(2, 3);
 scrObstruct(4, 3);
+
+
+
 </string>
           </argument>
         </arguments>
@@ -102,7 +106,7 @@ for (i = 0; i &lt; instance_number(obstruct); i += 1)
    
 draw_text(200, 20, string(obj_tester.touches));
 draw_text(200, 40, string(instance_number(objSpot)));   
-
+draw_text(250, 40, "Roll: " + string(obj_tester.ranNum));
 </string>
           </argument>
         </arguments>

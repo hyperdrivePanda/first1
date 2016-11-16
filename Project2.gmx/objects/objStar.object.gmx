@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>lengthOut = 60;
+            <string>depth = objR.depth - 1;
+lengthOut = 60;
 </string>
           </argument>
         </arguments>

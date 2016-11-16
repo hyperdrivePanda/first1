@@ -6,6 +6,7 @@ backFree = true;
 leftFree = true;
 rightFree = true;
  
+//obstacle checking
  if instance_exists(obstruct)
  {
 //-----------------------W------------------------
@@ -49,14 +50,14 @@ rightFree = true;
     }
    }
  }
- 
+ //movement
  if (keyboard_check_pressed(ord('W')) == true and fwdMax > fwd and fwdFree == true)
  {  
     fwd++;
     x = path_get_point_x(stage.column[horiz], fwd);
     y = path_get_point_y(stage.column[horiz], fwd);
-    image_xscale -= 0.15;
-    image_yscale  -= 0.15;
+    image_xscale *= 0.85;
+    image_yscale  *= 0.85;
     depth++;
     
  }
@@ -66,8 +67,8 @@ rightFree = true;
     fwd--;
     x = path_get_point_x(stage.column[horiz], fwd);
     y = path_get_point_y(stage.column[horiz], fwd);
-    image_xscale += 0.15;
-    image_yscale  += 0.15;
+    image_xscale /= 0.85;
+    image_yscale  /= 0.85;
     depth--;
     
  }
